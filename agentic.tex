@@ -1,0 +1,304 @@
+round 1
+
+[Agentic][Dynamic Routing][Training] Epoch 1 | CE: 1.404 | LB: 0.061 | Router: 1.285 | Entropy: 1.269
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [567, 194, 482, 757]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.23968319594860077, 0.22292166948318481, 0.23464757204055786, 0.30274757742881775]
+[Agentic][Dynamic Routing][Training] Epoch 2 | CE: 1.355 | LB: 0.016 | Router: 1.379 | Entropy: 1.352
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [717, 92, 258, 933]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.24772006273269653, 0.22054071724414825, 0.23282456398010254, 0.2989146411418915]
+[Agentic][Dynamic Routing][Training] Epoch 3 | CE: 1.340 | LB: 0.014 | Router: 1.366 | Entropy: 1.354
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [661, 91, 321, 927]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.2419036477804184, 0.22029034793376923, 0.23572830855846405, 0.30207768082618713]
+[Agentic][Dynamic Routing][Training] Epoch 4 | CE: 1.320 | LB: 0.013 | Router: 1.342 | Entropy: 1.353
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [596, 120, 393, 891]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.2422562837600708, 0.22076599299907684, 0.23427268862724304, 0.30270490050315857]
+[Agentic][Dynamic Routing][Training] Epoch 5 | CE: 1.293 | LB: 0.013 | Router: 1.307 | Entropy: 1.340
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [529, 190, 441, 840]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.24522282183170319, 0.22004009783267975, 0.23307739198207855, 0.3016596734523773]
+
+[Agentic][Dynamic Routing] Confusion Matrix: rows=True class, cols=Routed agent
+tensor([[264, 125,  58,  30],
+[ 53, 218,  37,  30],
+[ 52, 106, 220,  30],
+[174, 298, 141, 164]])
+[Agentic][Dynamic Routing][Testing] Per-agent accuracy (handled samples): [0.4861878453038674, 0.33467202141900937, 0.3157894736842105, 0.6456692913385826]
+
+[Agentic][Static Routing] Agent outputs BEFORE:
+[Agentic] Agent 0 output: [[ 0.32547095 -0.3945824  -0.3224122   0.26248306]]
+[Agentic] Agent 1 output: [[-0.22857392  0.3741424  -0.2604831   0.31356445]]
+[Agentic] Agent 2 output: [[-0.6492799 -0.5023901  0.5545643  0.6361817]]
+[Agentic] Agent 3 output: [[-0.11292581 -0.16333638 -0.37880075  0.3980941 ]]
+
+[Agentic][Static Routing][Training] Agent 1 fine-tuning ...
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 1 | Loss: 57.920
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 2 | Loss: 0.779
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 3 | Loss: 0.207
+
+[Agentic][Static Routing] Agent outputs AFTER agent 1 fine-tuning:
+[Agentic] Agent 0 output: [[ 0.32547095 -0.3945824  -0.3224122   0.26248306]]
+[Agentic] Agent 1 output: [[-3.2469406  5.320299  -3.9492772 -2.866692 ]]
+[Agentic] Agent 2 output: [[-0.6492799 -0.5023901  0.5545643  0.6361817]]
+[Agentic] Agent 3 output: [[-0.11292581 -0.16333638 -0.37880075  0.3980941 ]]
+[Agentic][Static Routing][Testing] Per-agent accuracy (handled samples): [1.0, 1.0, 0.0196078431372549, 0.9562419562419563]
+
+[Agentic][CAC][Parallel Aggregation] For input X[2], aggregate all 4 agents (Majority Voting & Softmax Mean):
+[Agentic][CAC] Individual Agent 0 output: tensor([[ 0.2708, -0.3535, -0.1477,  0.1779]])
+[Agentic][CAC] Individual Agent 1 output: tensor([[-2.6454,  4.1079, -3.1579, -2.1531]])
+[Agentic][CAC] Individual Agent 2 output: tensor([[-0.6270, -0.5477,  0.6645,  0.6771]])
+[Agentic][CAC] Individual Agent 3 output: tensor([[-0.2603, -0.1109, -0.2593,  0.5044]])
+[Agentic][CAC] Mean (raw logits) predicted class: 1
+
+[Agentic][CAC][Learnable Coordinator] Dynamic selection for input X[2]:
+
+[Agentic][CAC][Learnable Coordinator] Selecting agents dynamically...
+[Agentic][CAC][SharedMemory] Updating memory for agent 1.
+[Agentic][CAC][SharedMemory] Updating memory for agent 3.
+[Agentic][CAC] Aggregated output (learnable selection): tensor([[[-1.4528,  1.9985, -1.7086, -0.8244]]])
+[Agentic] Agents selected by coordinator: [1, 3]
+[Agentic][CAC] Selected Agent 1 output: tensor([[-2.6454,  4.1079, -3.1579, -2.1531]])
+[Agentic][CAC] Selected Agent 3 output: tensor([[-0.2603, -0.1109, -0.2593,  0.5044]])
+[Agentic][CAC] Mean (raw logits) predicted class: 1
+
+Round 2
+
+[Agentic][Dynamic Routing][Training] Epoch 1 | CE: 1.404 | LB: 0.066 | Router: 1.350 | Entropy: 1.259
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [696, 161, 413, 730]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.2439296841621399, 0.18163998425006866, 0.25533851981163025, 0.3190918266773224]
+[Agentic][Dynamic Routing][Training] Epoch 2 | CE: 1.353 | LB: 0.015 | Router: 1.361 | Entropy: 1.353
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [620, 99, 306, 975]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.2453596591949463, 0.21484646201133728, 0.23713278770446777, 0.30266112089157104]
+[Agentic][Dynamic Routing][Training] Epoch 3 | CE: 1.325 | LB: 0.014 | Router: 1.342 | Entropy: 1.350
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [574, 145, 352, 929]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.24578221142292023, 0.2182473987340927, 0.23505999147891998, 0.3009103536605835]
+[Agentic][Dynamic Routing][Training] Epoch 4 | CE: 1.286 | LB: 0.014 | Router: 1.284 | Entropy: 1.334
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [519, 225, 391, 865]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.24690060317516327, 0.2197924554347992, 0.23471541702747345, 0.2985914647579193]
+[Agentic][Dynamic Routing][Training] Epoch 5 | CE: 1.216 | LB: 0.016 | Router: 1.193 | Entropy: 1.276
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [483, 333, 393, 791]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.24695749580860138, 0.22333496809005737, 0.2316945493221283, 0.29801300168037415]
+
+[Agentic][Dynamic Routing] Confusion Matrix: rows=True class, cols=Routed agent
+tensor([[225, 114,  55,  83],
+[ 41, 218,  33,  46],
+[ 31,  59, 262,  56],
+[ 94, 178,  62, 443]])
+[Agentic][Dynamic Routing][Testing] Per-agent accuracy (handled samples): [0.5652173913043478, 0.38488576449912126, 0.6359223300970874, 0.7054140127388535]
+
+[Agentic][Static Routing] Agent outputs BEFORE:
+[Agentic] Agent 0 output: [[ 0.39482027 -0.62686664  0.07028259  0.1050469 ]]
+[Agentic] Agent 1 output: [[-0.28542542 -0.00039361  0.05830032 -0.15270045]]
+[Agentic] Agent 2 output: [[-0.8640903 -1.2253276  1.3595513 -0.3158322]]
+[Agentic] Agent 3 output: [[-0.09513539 -0.5706871  -0.19645977  0.46394578]]
+
+[Agentic][Static Routing][Training] Agent 1 fine-tuning ...
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 1 | Loss: 78.687
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 2 | Loss: 1.495
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 3 | Loss: 0.411
+
+[Agentic][Static Routing] Agent outputs AFTER agent 1 fine-tuning:
+[Agentic] Agent 0 output: [[ 0.39482027 -0.62686664  0.07028259  0.1050469 ]]
+[Agentic] Agent 1 output: [[-2.399032   1.8680602 -1.9422758 -2.0491345]]
+[Agentic] Agent 2 output: [[-0.8640903 -1.2253276  1.3595513 -0.3158322]]
+[Agentic] Agent 3 output: [[-0.09513539 -0.5706871  -0.19645977  0.46394578]]
+[Agentic][Static Routing][Testing] Per-agent accuracy (handled samples): [0.7819706498951782, 1.0, 0.9632352941176471, 1.0]
+
+[Agentic][CAC][Parallel Aggregation] For input X[2], aggregate all 4 agents (Majority Voting & Softmax Mean):
+[Agentic][CAC] Individual Agent 0 output: tensor([[ 0.2129, -0.3853,  0.1826, -0.0275]])
+[Agentic][CAC] Individual Agent 1 output: tensor([[-1.9561,  1.6726, -1.4645, -1.7182]])
+[Agentic][CAC] Individual Agent 2 output: tensor([[-0.8969, -1.0302,  1.2919, -0.2971]])
+[Agentic][CAC] Individual Agent 3 output: tensor([[-0.2795, -0.4603, -0.0049,  0.3995]])
+[Agentic][CAC] Mean (raw logits) predicted class: 2
+
+[Agentic][CAC][Learnable Coordinator] Dynamic selection for input X[2]:
+
+[Agentic][CAC][Learnable Coordinator] Selecting agents dynamically...
+[Agentic][CAC][SharedMemory] Updating memory for agent 2.
+[Agentic][CAC][SharedMemory] Updating memory for agent 0.
+[Agentic][CAC] Aggregated output (learnable selection): tensor([[[-0.3420, -0.7078,  0.7373, -0.1623]]])
+[Agentic] Agents selected by coordinator: [2, 0]
+[Agentic][CAC] Selected Agent 2 output: tensor([[-0.8969, -1.0302,  1.2919, -0.2971]])
+[Agentic][CAC] Selected Agent 0 output: tensor([[ 0.2129, -0.3853,  0.1826, -0.0275]])
+[Agentic][CAC] Mean (raw logits) predicted class: 2
+
+Round 3
+
+[Agentic][Dynamic Routing][Training] Epoch 1 | CE: 1.394 | LB: 0.049 | Router: 1.277 | Entropy: 1.279
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [635, 255, 411, 699]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.26185673475265503, 0.23037637770175934, 0.19640499353408813, 0.3113619387149811]
+[Agentic][Dynamic Routing][Training] Epoch 2 | CE: 1.357 | LB: 0.015 | Router: 1.355 | Entropy: 1.348
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [625, 174, 346, 855]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.2426748126745224, 0.22222498059272766, 0.2347690612077713, 0.300331175327301]
+[Agentic][Dynamic Routing][Training] Epoch 3 | CE: 1.318 | LB: 0.015 | Router: 1.319 | Entropy: 1.339
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [561, 253, 355, 831]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.24328051507472992, 0.22119657695293427, 0.2338186353445053, 0.3017043173313141]
+[Agentic][Dynamic Routing][Training] Epoch 4 | CE: 1.252 | LB: 0.015 | Router: 1.240 | Entropy: 1.301
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [545, 334, 364, 757]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.24536460638046265, 0.22272339463233948, 0.23046059906482697, 0.3014513850212097]
+[Agentic][Dynamic Routing][Training] Epoch 5 | CE: 1.178 | LB: 0.021 | Router: 1.128 | Entropy: 1.205
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [508, 380, 410, 702]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.24908341467380524, 0.22222331166267395, 0.2264977991580963, 0.3021954596042633]
+
+[Agentic][Dynamic Routing] Confusion Matrix: rows=True class, cols=Routed agent
+tensor([[292,  85,  59,  41],
+[ 16, 267,  36,  19],
+[ 26,  46, 281,  55],
+[ 71, 285, 120, 301]])
+[Agentic][Dynamic Routing][Testing] Per-agent accuracy (handled samples): [0.7209876543209877, 0.44363103953147875, 0.5665322580645161, 0.7235576923076923]
+
+[Agentic][Static Routing] Agent outputs BEFORE:
+[Agentic] Agent 0 output: [[ 0.50943124 -0.07148173  0.0432515   0.11700636]]
+[Agentic] Agent 1 output: [[-1.1307213   0.09585138 -0.6441729   0.6155975 ]]
+[Agentic] Agent 2 output: [[-0.2006418  -0.36281946  1.5968438   1.2028596 ]]
+[Agentic] Agent 3 output: [[-0.6359314  -0.4629978  -0.636322    0.34571004]]
+
+[Agentic][Static Routing][Training] Agent 1 fine-tuning ...
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 1 | Loss: 45.547
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 2 | Loss: 1.706
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 3 | Loss: 0.534
+
+[Agentic][Static Routing] Agent outputs AFTER agent 1 fine-tuning:
+[Agentic] Agent 0 output: [[ 0.50943124 -0.07148173  0.0432515   0.11700636]]
+[Agentic] Agent 1 output: [[-4.4171863  3.8594148 -3.7755978 -2.6487682]]
+[Agentic] Agent 2 output: [[-0.2006418  -0.36281946  1.5968438   1.2028596 ]]
+[Agentic] Agent 3 output: [[-0.6359314  -0.4629978  -0.636322    0.34571004]]
+[Agentic][Static Routing][Testing] Per-agent accuracy (handled samples): [0.9958071278825996, 1.0, 0.9779411764705882, 1.0]
+
+[Agentic][CAC][Parallel Aggregation] For input X[2], aggregate all 4 agents (Majority Voting & Softmax Mean):
+[Agentic][CAC] Individual Agent 0 output: tensor([[ 0.2926, -0.1337,  0.2532, -0.1362]])
+[Agentic][CAC] Individual Agent 1 output: tensor([[-2.6065,  1.3368, -1.6580, -1.6738]])
+[Agentic][CAC] Individual Agent 2 output: tensor([[-0.0994, -0.1809,  1.9731,  0.9038]])
+[Agentic][CAC] Individual Agent 3 output: tensor([[-0.5454, -0.3076, -0.3996,  0.1976]])
+[Agentic][CAC] Mean (raw logits) predicted class: 1
+
+[Agentic][CAC][Learnable Coordinator] Dynamic selection for input X[2]:
+
+[Agentic][CAC][Learnable Coordinator] Selecting agents dynamically...
+[Agentic][CAC][SharedMemory] Updating memory for agent 1.
+[Agentic][CAC][SharedMemory] Updating memory for agent 2.
+[Agentic][CAC] Aggregated output (learnable selection): tensor([[[-1.3529,  0.5780,  0.1576, -0.3850]]])
+[Agentic] Agents selected by coordinator: [1, 2]
+[Agentic][CAC] Selected Agent 1 output: tensor([[-2.6065,  1.3368, -1.6580, -1.6738]])
+[Agentic][CAC] Selected Agent 2 output: tensor([[-0.0994, -0.1809,  1.9731,  0.9038]])
+[Agentic][CAC] Mean (raw logits) predicted class: 1
+
+Round 4
+
+[Agentic][Dynamic Routing][Training] Epoch 1 | CE: 1.425 | LB: 0.064 | Router: 1.386 | Entropy: 1.259
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [664, 167, 495, 674]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.26750683784484863, 0.19058527052402496, 0.2124999463558197, 0.32940781116485596]
+[Agentic][Dynamic Routing][Training] Epoch 2 | CE: 1.358 | LB: 0.012 | Router: 1.362 | Entropy: 1.359
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [514, 83, 386, 1017]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.24841566383838654, 0.21606887876987457, 0.23019243776798248, 0.30532306432724]
+[Agentic][Dynamic Routing][Training] Epoch 3 | CE: 1.329 | LB: 0.011 | Router: 1.342 | Entropy: 1.356
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [448, 132, 424, 996]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.2481117695569992, 0.2191881239414215, 0.22998641431331635, 0.30271366238594055]
+[Agentic][Dynamic Routing][Training] Epoch 4 | CE: 1.297 | LB: 0.012 | Router: 1.301 | Entropy: 1.341
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [456, 177, 437, 930]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.25131914019584656, 0.21960438787937164, 0.22766627371311188, 0.3014102876186371]
+[Agentic][Dynamic Routing][Training] Epoch 5 | CE: 1.260 | LB: 0.015 | Router: 1.236 | Entropy: 1.293
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [475, 259, 469, 797]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.2527352273464203, 0.2227402776479721, 0.22390124201774597, 0.3006232678890228]
+
+[Agentic][Dynamic Routing] Confusion Matrix: rows=True class, cols=Routed agent
+tensor([[240, 118,  63,  56],
+[ 68, 185,  56,  29],
+[ 17,  54, 302,  35],
+[179, 146, 159, 293]])
+[Agentic][Dynamic Routing][Testing] Per-agent accuracy (handled samples): [0.47619047619047616, 0.36779324055666, 0.5224137931034483, 0.7094430992736077]
+
+[Agentic][Static Routing] Agent outputs BEFORE:
+[Agentic] Agent 0 output: [[ 0.45939305 -0.45162323 -0.4966877   0.10185799]]
+[Agentic] Agent 1 output: [[-0.04563323  0.31189075 -0.2533309  -0.03087212]]
+[Agentic] Agent 2 output: [[-0.63652194 -0.60781145  0.6909483   0.38125354]]
+[Agentic] Agent 3 output: [[-0.1901515  -0.16337083 -0.05406115  0.6982411 ]]
+
+[Agentic][Static Routing][Training] Agent 1 fine-tuning ...
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 1 | Loss: 65.378
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 2 | Loss: 0.985
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 3 | Loss: 0.098
+
+[Agentic][Static Routing] Agent outputs AFTER agent 1 fine-tuning:
+[Agentic] Agent 0 output: [[ 0.45939305 -0.45162323 -0.4966877   0.10185799]]
+[Agentic] Agent 1 output: [[-3.5875933  4.752805  -4.5845156 -3.976494 ]]
+[Agentic] Agent 2 output: [[-0.63652194 -0.60781145  0.6909483   0.38125354]]
+[Agentic] Agent 3 output: [[-0.1901515  -0.16337083 -0.05406115  0.6982411 ]]
+[Agentic][Static Routing][Testing] Per-agent accuracy (handled samples): [0.9937106918238994, 1.0, 0.9975490196078431, 0.9794079794079794]
+
+[Agentic][CAC][Parallel Aggregation] For input X[2], aggregate all 4 agents (Majority Voting & Softmax Mean):
+[Agentic][CAC] Individual Agent 0 output: tensor([[ 0.2323, -0.3500, -0.2331, -0.0617]])
+[Agentic][CAC] Individual Agent 1 output: tensor([[-3.3768,  4.3345, -4.1198, -3.9079]])
+[Agentic][CAC] Individual Agent 2 output: tensor([[-0.6959, -0.6743,  0.8649,  0.3887]])
+[Agentic][CAC] Individual Agent 3 output: tensor([[-0.2081, -0.0991, -0.0223,  0.4921]])
+[Agentic][CAC] Mean (raw logits) predicted class: 1
+
+[Agentic][CAC][Learnable Coordinator] Dynamic selection for input X[2]:
+
+[Agentic][CAC][Learnable Coordinator] Selecting agents dynamically...
+[Agentic][CAC][SharedMemory] Updating memory for agent 2.
+[Agentic][CAC][SharedMemory] Updating memory for agent 0.
+[Agentic][CAC] Aggregated output (learnable selection): tensor([[[-0.2318, -0.5122,  0.3159,  0.1635]]])
+[Agentic] Agents selected by coordinator: [2, 0]
+[Agentic][CAC] Selected Agent 2 output: tensor([[-0.6959, -0.6743,  0.8649,  0.3887]])
+[Agentic][CAC] Selected Agent 0 output: tensor([[ 0.2323, -0.3500, -0.2331, -0.0617]])
+[Agentic][CAC] Mean (raw logits) predicted class: 2
+
+Round 5
+
+[Agentic][Dynamic Routing][Training] Epoch 1 | CE: 1.415 | LB: 0.068 | Router: 1.375 | Entropy: 1.247
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [580, 242, 439, 739]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.2589046359062195, 0.17179377377033234, 0.23706278204917908, 0.3322388529777527]
+[Agentic][Dynamic Routing][Training] Epoch 2 | CE: 1.366 | LB: 0.016 | Router: 1.369 | Entropy: 1.349
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [663, 141, 286, 910]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.24793359637260437, 0.2150917500257492, 0.23566992580890656, 0.3013046383857727]
+[Agentic][Dynamic Routing][Training] Epoch 3 | CE: 1.328 | LB: 0.015 | Router: 1.336 | Entropy: 1.347
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [628, 155, 327, 890]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.24583692848682404, 0.21701784431934357, 0.23599231243133545, 0.30115291476249695]
+[Agentic][Dynamic Routing][Training] Epoch 4 | CE: 1.291 | LB: 0.014 | Router: 1.294 | Entropy: 1.333
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [579, 214, 357, 850]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.24556998908519745, 0.21921086311340332, 0.2328200787305832, 0.30239903926849365]
+[Agentic][Dynamic Routing][Training] Epoch 5 | CE: 1.257 | LB: 0.015 | Router: 1.223 | Entropy: 1.289
+[Agentic][Dynamic Routing][Training] Hard assignment counts per agent: [585, 265, 401, 749]
+[Agentic][Dynamic Routing][Training] Mean softmax probability per agent: [0.24696145951747894, 0.21815454959869385, 0.23357819020748138, 0.3013058006763458]
+
+[Agentic][Dynamic Routing] Confusion Matrix: rows=True class, cols=Routed agent
+tensor([[320,  95,  29,  33],
+[ 67, 230,  17,  24],
+[ 59,  74, 240,  35],
+[245, 228,  80, 224]])
+[Agentic][Dynamic Routing][Testing] Per-agent accuracy (handled samples): [0.4630969609261939, 0.3668261562998405, 0.6557377049180327, 0.7088607594936709]
+
+[Agentic][Static Routing] Agent outputs BEFORE:
+[Agentic] Agent 0 output: [[ 0.6738373  -0.5240316  -0.60010296  0.28120202]]
+[Agentic] Agent 1 output: [[-0.4331924   0.5909682  -0.4822256   0.23860678]]
+[Agentic] Agent 2 output: [[-0.61694384 -0.50381863  0.5819037   0.17343694]]
+[Agentic] Agent 3 output: [[-0.07666124 -0.34435272 -0.48600703  0.44380146]]
+
+[Agentic][Static Routing][Training] Agent 1 fine-tuning ...
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 1 | Loss: 41.828
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 2 | Loss: 0.759
+[Agentic][Static Routing][Agent 1 Fine-Tuning] Epoch 3 | Loss: 0.103
+
+[Agentic][Static Routing] Agent outputs AFTER agent 1 fine-tuning:
+[Agentic] Agent 0 output: [[ 0.6738373  -0.5240316  -0.60010296  0.28120202]]
+[Agentic] Agent 1 output: [[-5.459237   6.2643747 -4.553896  -3.8305626]]
+[Agentic] Agent 2 output: [[-0.61694384 -0.50381863  0.5819037   0.17343694]]
+[Agentic] Agent 3 output: [[-0.07666124 -0.34435272 -0.48600703  0.44380146]]
+[Agentic][Static Routing][Testing] Per-agent accuracy (handled samples): [0.9916142557651991, 1.0, 1.0, 1.0]
+
+[Agentic][CAC][Parallel Aggregation] For input X[2], aggregate all 4 agents (Majority Voting & Softmax Mean):
+[Agentic][CAC] Individual Agent 0 output: tensor([[ 0.1173, -0.3281, -0.1160,  0.0840]])
+[Agentic][CAC] Individual Agent 1 output: tensor([[-2.8908,  3.1566, -2.3039, -2.2038]])
+[Agentic][CAC] Individual Agent 2 output: tensor([[-0.6909, -0.8821,  1.3008,  0.2805]])
+[Agentic][CAC] Individual Agent 3 output: tensor([[-0.3940, -0.3797, -0.3580,  0.3231]])
+[Agentic][CAC] Mean (raw logits) predicted class: 1
+
+[Agentic][CAC][Learnable Coordinator] Dynamic selection for input X[2]:
+
+[Agentic][CAC][Learnable Coordinator] Selecting agents dynamically...
+[Agentic][CAC][SharedMemory] Updating memory for agent 2.
+[Agentic][CAC][SharedMemory] Updating memory for agent 1.
+[Agentic][CAC] Aggregated output (learnable selection): tensor([[[-1.7909,  1.1372, -0.5015, -0.9617]]])
+[Agentic] Agents selected by coordinator: [2, 1]
+[Agentic][CAC] Selected Agent 2 output: tensor([[-0.6909, -0.8821,  1.3008,  0.2805]])
+[Agentic][CAC] Selected Agent 1 output: tensor([[-2.8908,  3.1566, -2.3039, -2.2038]])
+[Agentic][CAC] Mean (raw logits) predicted class: 1
